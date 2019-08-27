@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_152828) do
+ActiveRecord::Schema.define(version: 2019_08_26_223350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "messages", force: :cascade do |t|
-    t.integer "identifier"
+    t.string "identifier"
     t.string "detected_language"
     t.datetime "timestamp"
     t.bigint "session_id", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_152828) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.integer "identifier"
+    t.string "identifier"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
