@@ -1,12 +1,12 @@
 class Message < ApplicationRecord
   belongs_to :session
-  validates :language_support
+  validate :language_support
   validates :identifier, uniqueness: true
 
   private
 
   def language_supported?
-    detected_language == "english" || detected_language == "german" || detected_language == "spanish"
+    detected_language == "en" || detected_language == "de" || detected_language == "es"
   end
 
   def language_support
