@@ -30,5 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  salutation: "Hi, how can I help you?"
-  available_languages: "You can write to me in English, German, or Spanish."
+  1: "Hi, how can I help you?"
+  2: "You can write to me in English, German, or Spanish."
+  3: "Thank you for taking the time to write to me today."

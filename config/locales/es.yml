@@ -1,4 +1,5 @@
 
 es:
-  salutation: "Hola, ¿en qué puedo ayudarle?"
-  available_languages: "Puedo entenderle en alemán, inglés o español."
+  1: "Hola, ¿en qué puedo ayudarle?"
+  2: "Puedo entenderle en alemán, inglés o español."
+  3: "Gracias por tomarse el tiempo de escribirme hoy."
