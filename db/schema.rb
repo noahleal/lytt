@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_223350) do
+ActiveRecord::Schema.define(version: 2019_08_27_110230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_08_26_223350) do
     t.datetime "sent_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "session_id", null: false
+    t.index ["session_id"], name: "index_replies_on_session_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -41,4 +43,5 @@ ActiveRecord::Schema.define(version: 2019_08_26_223350) do
   end
 
   add_foreign_key "messages", "sessions"
+  add_foreign_key "replies", "sessions"
 end
