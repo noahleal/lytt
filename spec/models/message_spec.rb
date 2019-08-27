@@ -19,10 +19,20 @@ RSpec.describe Api::V1::MessagesController do
                        con ojos de fría plata.'
                      }
 
+  describe "Validates queries", type: :request do
+
+    it "won't accept a post request without a message" do
+      post '/api/v1/sessions/123456/messages', params: { text: "" }
+      expect(response.status).to eq (400)
+    end
+  end
+
+
+
   describe "Create new english message with new session", type: :request do
 
     before do
-      post '/api/v1/sessions/123456/messages', params: { text: 'I’ll work my way from irony to sincerity in the sinking city, a would be Whitman of the vulnerable grid.' }
+      post '/api/v1/sessions/123456/messages', params: { text: english_text }
     end
 
 
@@ -90,7 +100,6 @@ RSpec.describe Api::V1::MessagesController do
     it "returns the proper error" do
       expect(response.status).to eq (422)
     end
-
   end
 
   describe "creates English reply", :type => :request do
@@ -145,7 +154,5 @@ RSpec.describe Api::V1::MessagesController do
     end
 
   end
-
-
-
 end
+

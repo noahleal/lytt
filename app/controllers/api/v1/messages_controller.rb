@@ -34,7 +34,6 @@ class Api::V1::MessagesController < Api::V1::BaseController
   end
 
   def set_reply
-
     @reply = Reply.new(session: @session, message: I18n.t(@message_number), reply_to: @message.identifier, shortname: "Reply ##{@message_number}", language: I18n.locale)
     @reply.save
   end
