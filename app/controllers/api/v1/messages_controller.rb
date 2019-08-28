@@ -30,11 +30,19 @@ class Api::V1::MessagesController < Api::V1::BaseController
   end
 
   def set_locale
-      I18n.locale = @message.detected_language if @message_number == 2
+      if @message_number == 1 || 2
+        I18n.locale = @message.detected_language
+      else
+        I18n.locale = @session.replies.last.language
+      end
   end
 
   def set_reply
-    @reply = Reply.new(session: @session, message: I18n.t(@message_number), reply_to: @message.identifier, shortname: "Reply ##{@message_number}", language: I18n.locale)
+    if @message_number >= 4
+      @reply = Reply.new(session: @session, message: I18n.t(4), reply_to: @message.identifier, shortname: "Reply ##{@message_number}", language: I18n.locale)
+    else
+      @reply = Reply.new(session: @session, message: I18n.t(@message_number), reply_to: @message.identifier, shortname: "Reply ##{@message_number}", language: I18n.locale)
+    end
     @reply.save
   end
 
