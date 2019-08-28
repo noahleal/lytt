@@ -45,9 +45,10 @@ Otherwise you will receive one like this:
 ### Request
 
 `GET "/api/v1/sessions/{session-id}/messages/{identifier-id}"`
+
 Here both `{session-id}` and `{identifier-id}` are `strings`
 
-## Response
+### Response
 
 If a session with `{session-id}` exists and contains a message with `{identifier-id}`: 
 ```
@@ -72,6 +73,7 @@ the locale is set and all replies will be in the appropriate translation.
 
 To see all replies for a session:
 `GET "/api/v1/sessions/{session-id}/replies"`
+
 `{session-id}` must of course be a `string` that is already associated with a session.
 ### Response
 ```
